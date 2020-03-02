@@ -1,8 +1,10 @@
 <nav class="navbar navbar-expand navbar-dark bg-primary">
   <div class="nav navbar-nav">
-      <a class="nav-item nav-link" routerLink="/">Home</a>
-      <a class="nav-item nav-link" routerLink="test/">Test</a>
-      <a class="nav-item nav-link" routerLink="/products">Products</a>
-      <a class="nav-item nav-link" routerLink="/contact">Contact</a>
+      <a class="nav-item nav-link" routerLink="/"
+      [routerLinkActiveOptions]="{exact: true}"
+      routerLinkActive="active">Home</a>
+      <a class="nav-item nav-link" routerLink="/test" routerLinkActive="active">Test</a>
+      <a class="nav-item nav-link" routerLink="/products" routerLinkActive="active">Products</a>
+      <a class="nav-item nav-link" routerLink="/contact" routerLinkActive="active">Contact</a>
   </div>
 </nav>
