@@ -1,12 +1,19 @@
 
 <p class="red">my-test works! <code> {{ testVar | json }} </code></p>
-<div class="bg-secondary" style="width: 200px;
-height: 200px">
+  <div *ngIf="asyncData; else boxLoader" class="bg-secondary" style="width: 200px;
+height: 200px" >
+<ul>
+  <li *ngFor="let item of asyncData">
+{{item}}
+  </li>
+</ul>
 <input #myTestInput class="m-3" (keyup)="keyupHandler()">
 {{ myTestInput.value }}
 </div>
+<ng-template #boxLoader>Loading.....</ng-template>
 
 <div>CHild clicks counter: {{ childCounter }}</div>
 <ros-test-child
+bgColor="yellow"
 (childUpdate)="childUpdateHandler($event)"
 [childInput]="testVar"></ros-test-child>

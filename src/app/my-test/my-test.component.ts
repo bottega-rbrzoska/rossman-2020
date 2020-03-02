@@ -8,9 +8,14 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class MyTestComponent implements OnInit {
 
+  asyncData;
   childCounter: number;
   testVar = {  test: 'test' };
-  constructor() { }
+  constructor() {
+    setTimeout(() => {
+      this.asyncData = [1,2,3,4]
+    }, 2000)
+   }
 
   ngOnInit(): void {
   }
