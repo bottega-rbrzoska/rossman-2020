@@ -8,9 +8,17 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class MyTestComponent implements OnInit {
 
+  childCounter: number;
+  testVar = {  test: 'test' };
   constructor() { }
 
   ngOnInit(): void {
   }
+  childUpdateHandler(counter: number) {
+    this.childCounter = counter;
+  }
 
+  keyupHandler() {
+
+  }
 }

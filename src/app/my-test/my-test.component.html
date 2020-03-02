@@ -1,4 +1,12 @@
-<br>
-<br>
-<br>
-<p class="red">my-test works!</p>
+
+<p class="red">my-test works! <code> {{ testVar | json }} </code></p>
+<div class="bg-secondary" style="width: 200px;
+height: 200px">
+<input #myTestInput class="m-3" (keyup)="keyupHandler()">
+{{ myTestInput.value }}
+</div>
+
+<div>CHild clicks counter: {{ childCounter }}</div>
+<ros-test-child
+(childUpdate)="childUpdateHandler($event)"
+[childInput]="testVar"></ros-test-child>

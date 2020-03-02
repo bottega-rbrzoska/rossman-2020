@@ -14,6 +14,7 @@ import { ProductAddComponent } from './products/product-add/product-add.componen
 import { ProductFormComponent } from './products/product-form/product-form.component';
 import { ProductEditComponent } from './products/product-edit/product-edit.component';
 import { MyTestDetailComponent } from './my-test-detail/my-test-detail.component';
+import { TestChildComponent } from './test-child/test-child.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { MyTestDetailComponent } from './my-test-detail/my-test-detail.component
     ProductAddComponent,
     ProductFormComponent,
     ProductEditComponent,
-    MyTestDetailComponent
+    MyTestDetailComponent,
+    TestChildComponent
   ],
   imports: [
     BrowserModule,
