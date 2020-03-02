@@ -1,1 +1,4 @@
-<p>product-item works!</p>
+<div class="list-group-item d-flex justify-content-between">
+  <div>{{product.name}}  {{product.price | currency:'USD' }}</div>
+  <button class="btn btn-warning" [routerLink]="['/products', product.id, 'edit']">Edit</button>
+</div>

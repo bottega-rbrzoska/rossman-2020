@@ -1,2 +1,5 @@
 <button class="btn btn-danger" routerLink="/products/add">Add new product</button>
-<p>product-list works!</p>
+<div class="list-group">
+  <ros-product-item [product]="product" *ngFor="let product of products"></ros-product-item>
+</div>
+

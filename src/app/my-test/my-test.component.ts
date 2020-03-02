@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Test } from '../models/test.interface';
 
 @Component({
   selector: 'ros-my-test',
@@ -10,7 +11,7 @@ export class MyTestComponent implements OnInit {
 
   asyncData;
   childCounter: number;
-  testVar = {  test: 'test' };
+  testVar: Test = {  test: 'test' };
   constructor() {
     setTimeout(() => {
       this.asyncData = [1,2,3,4]
