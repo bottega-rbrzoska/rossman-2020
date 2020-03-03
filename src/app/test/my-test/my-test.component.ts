@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { Test } from '../models/test.interface';
+import { Test } from '../../models/test.interface';
 
 @Component({
   selector: 'ros-my-test',
