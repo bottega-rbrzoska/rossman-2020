@@ -8,8 +8,8 @@
       <a class="nav-item nav-link" routerLink="/contact" routerLinkActive="active">Contact</a>
   </div>
   <div>
-    <ng-container *ngIf="user$ | async as user; else loginBtn">
-      <span class="text-white mr-2">{{ user?.username }}</span>
+    <ng-container *ngIf="username$ | async as user; else loginBtn">
+      <span class="text-white mr-2">{{ user }}</span>
       <button class="btn btn-danger" (click)="logout()">Logout</button>
     </ng-container>
 

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user.interface';
 import { BehaviorSubject } from 'rxjs';
 import { environment } from '../../environments/environment';
+import { map } from 'rxjs/operators';
 
 const apiUrl = environment.apiUrl;
 
@@ -11,6 +12,12 @@ export class AuthService {
 
   private userSubj = new BehaviorSubject<User>(null);
   user$ = this.userSubj.asObservable();
+  username$ = this.userSubj.pipe(
+    map(u => u ? u.username : null)
+  );
+  isLoggedIn$ = this.userSubj.pipe(
+    map(user => !!user)
+  );
 
   constructor(private httpClient: HttpClient) {
     const initUser = localStorage.getItem('user');
