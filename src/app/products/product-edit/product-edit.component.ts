@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 export class ProductEditComponent implements OnInit {
   id;
   constructor(private route: ActivatedRoute) {
-    this.id = route.snapshot.params.id
+    this.id = route.snapshot.params.id;
   }
 
   ngOnInit(): void {

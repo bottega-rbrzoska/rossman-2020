@@ -6,7 +6,7 @@ import { MyTestDetailComponent } from './my-test-detail/my-test-detail.component
 
 const routes: Routes = [
   { path: '', component: MyTestComponent },
-  { path: ':id', component: MyTestDetailComponent },];
+  { path: ':id', component: MyTestDetailComponent }, ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

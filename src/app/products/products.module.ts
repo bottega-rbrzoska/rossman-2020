@@ -16,7 +16,7 @@ import { ProductsService } from './products.service';
     ProductItemComponent,
     ProductAddComponent,
     ProductFormComponent,
-    ProductEditComponent,],
+    ProductEditComponent, ],
   imports: [
     CommonModule,
     ProductsRoutingModule

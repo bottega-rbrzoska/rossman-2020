@@ -13,14 +13,14 @@ export class HomeComponent implements OnInit {
   counter: number;
   constructor(private counterService: CounterService, @Inject(CONFIG_TOKEN) private config: any) {
     this.counter = counterService.counterValue;
-    console.log(config)
+    console.log(config);
   }
 
   ngOnInit(): void {
   }
 
   multiply(val, mult) {
-    console.log('multiply in method: ' + val * mult)
+    console.log('multiply in method: ' + val * mult);
     return val * mult;
   }
 

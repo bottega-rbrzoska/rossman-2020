@@ -14,19 +14,19 @@ export class TestService {
   constructor(private http: HttpClient) { }
 
   getTestData() {
-    return this.http.get<any>(apiUrl + '/test')
+    return this.http.get<any>(apiUrl + '/test');
   }
 
   pushNewState(state) {
-    this.testStateSubj.next(state)
+    this.testStateSubj.next(state);
   }
 
   pushDefaultState() {
 
-    this.testStateSubj.next(0)
+    this.testStateSubj.next(0);
   }
 
   pushHttpState() {
-    this.http.get<any>(apiUrl + '/test').subscribe(v => this.testStateSubj.next(v))
+    this.http.get<any>(apiUrl + '/test').subscribe(v => this.testStateSubj.next(v));
   }
 }

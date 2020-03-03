@@ -16,7 +16,7 @@ export class TestChildComponent implements OnInit {
     this.uppercaseTestData = val.test.toUpperCase();
   }
 
-  @Input() bgColor = 'transparent'
+  @Input() bgColor = 'transparent';
   constructor() { }
 
   ngOnInit(): void {

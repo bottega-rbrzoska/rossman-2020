@@ -6,8 +6,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class TestPipe implements PipeTransform {
 
   transform(value: number, multiplier: number): number {
-    console.log('multiplied value: ' + value*multiplier);
-    return value*multiplier;
+    console.log('multiplied value: ' + value * multiplier);
+    return value * multiplier;
   }
 
 }

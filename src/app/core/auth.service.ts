@@ -14,10 +14,10 @@ export class AuthService {
 
   constructor(private httpClient: HttpClient) {
     const initUser = localStorage.getItem('user');
-    this.userSubj.next(initUser ? JSON.parse(initUser) : null)
+    this.userSubj.next(initUser ? JSON.parse(initUser) : null);
   }
 
-  login(id ='alojzy') {
+  login(id = 'alojzy') {
     this.httpClient.get<User>(apiUrl + '/auth/' + id).subscribe(user => {
       this.userSubj.next(user);
       localStorage.setItem('user', JSON.stringify(user));

@@ -19,8 +19,10 @@ export class MyTestComponent implements OnInit, OnDestroy {
 
   testVar: Test = {  test: 'test' };
   constructor(private testService: TestService) {
-    this.testService.pushNewState('new state');
-    this.subscribtion = this.testService.testState$.subscribe(v => console.log('test state: ' + v))
+    // this.testService.pushNewState('new state');
+
+    this.subscribtion = this.testService.testState$.subscribe(v => console.log('test state: ' + v));
+
     this.testData = this.testService.getTestData()
     .pipe(
       // tap(v => console.log(v)),
@@ -41,17 +43,17 @@ export class MyTestComponent implements OnInit, OnDestroy {
 
     const subj = new Subject();
 
-    subj.next(11)
+    subj.next(11);
     // subj.subscribe(v => console.log(v), e => console.log(e), () => console.log('complete'));
-    subj.next(31)
+    subj.next(31);
 
     const bsubj = new BehaviorSubject('b1');
 
     // bsubj.subscribe(v => console.log(v), e => console.log(e), () => console.log('complete'));
 
     setTimeout(() => {
-      this.asyncData = [1,2,3,4]
-    }, 2000)
+      this.asyncData = [1, 2, 3, 4];
+    }, 2000);
    }
 
   ngOnInit(): void {
@@ -62,6 +64,7 @@ ngOnDestroy() {
 
   childUpdateHandler(counter: number) {
     this.childCounter = counter;
+    this.testService.pushNewState('new state');
   }
 
   keyupHandler() {
