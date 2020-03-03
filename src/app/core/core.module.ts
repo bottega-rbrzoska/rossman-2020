@@ -14,7 +14,7 @@ export function counterServiceFactory() {
   ],
   providers: [
     { provide: CounterService, useFactory: counterServiceFactory },
-    { provide: CONFIG_TOKEN, useValue: { configData: 'blablablaconfig' }, multi:true},
+    { provide: CONFIG_TOKEN,  useValue: { configData: 'blablablaconfig' }, multi:true},
     { provide: CONFIG_TOKEN, useValue: { configData: 'asdasdasd' }, multi:true},
     { provide: CONFIG_TOKEN, useValue: { configData: 'aaaeergthtyjtyj' }, multi:true}
   ]
