@@ -19,7 +19,7 @@ export class MyTestComponent implements OnInit, OnDestroy {
 
   testVar: Test = {  test: 'test' };
   constructor(private testService: TestService) {
-    this.testService.pushNewState('new state')
+    this.testService.pushNewState('new state');
     this.subscribtion = this.testService.testState$.subscribe(v => console.log('test state: ' + v))
     this.testData = this.testService.getTestData()
     .pipe(

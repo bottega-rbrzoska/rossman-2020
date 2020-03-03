@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand navbar-dark bg-primary">
+<nav class="navbar navbar-expand navbar-dark bg-primary d-flex justify-content-between">
   <div class="nav navbar-nav">
       <a class="nav-item nav-link" routerLink="/"
       [routerLinkActiveOptions]="{exact: true}"
@@ -6,5 +6,16 @@
       <a class="nav-item nav-link" routerLink="/test" routerLinkActive="active">Test</a>
       <a class="nav-item nav-link" routerLink="/products" routerLinkActive="active">Products</a>
       <a class="nav-item nav-link" routerLink="/contact" routerLinkActive="active">Contact</a>
+  </div>
+  <div>
+    <ng-container *ngIf="user$ | async as user; else loginBtn">
+      <span class="text-white mr-2">{{ user?.username }}</span>
+      <button class="btn btn-danger" (click)="logout()">Logout</button>
+    </ng-container>
+
+    <ng-template #loginBtn>
+      <button class="btn btn-secondary" (click)="login()">Login</button>
+    </ng-template>
+
   </div>
 </nav>

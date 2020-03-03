@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
+import { environment } from '../../environments/environment';
 
+const apiUrl = environment.apiUrl;
 @Injectable()
 export class TestService {
 
@@ -12,7 +14,7 @@ export class TestService {
   constructor(private http: HttpClient) { }
 
   getTestData() {
-    return this.http.get<any>('http://localhost.test:3000/test')
+    return this.http.get<any>(apiUrl + '/test')
   }
 
   pushNewState(state) {
@@ -25,6 +27,6 @@ export class TestService {
   }
 
   pushHttpState() {
-    this.http.get<any>('http://localhost.test:3000/test').subscribe(v => this.testStateSubj.next(v))
+    this.http.get<any>(apiUrl + '/test').subscribe(v => this.testStateSubj.next(v))
   }
 }
