@@ -43,6 +43,14 @@
             "scripts": []
           },
           "configurations": {
+            "trainer-dev": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.trainer-dev.ts"
+                }
+              ]
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -81,6 +89,9 @@
           "configurations": {
             "production": {
               "browserTarget": "rossmann-app:build:production"
+            },
+            "trainer-dev": {
+              "browserTarget": "rossmann-app:build:trainer-dev"
             }
           }
         },
