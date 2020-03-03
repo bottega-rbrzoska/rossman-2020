@@ -1,2 +1,7 @@
 <p>home works!</p>
-<div>Counter: {{counter | json}}</div>
+<div>Counter: {{ counter | test:5}}</div>
+<div>{{2 | test : 10 }}</div>
+<div>{{2 | test : 10 }}</div>
+<div>{{2 | test : 10 }}</div>
+<div>multiplied by method: {{ multiply(3,5) }}</div>
+<button (click)="handleClick()">Trigger change detection</button>

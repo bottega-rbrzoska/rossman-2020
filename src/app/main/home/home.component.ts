@@ -19,4 +19,11 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  multiply(val, mult) {
+    console.log('multiply in method: ' + val * mult)
+    return val * mult;
+  }
+
+  handleClick() {}
+
 }
