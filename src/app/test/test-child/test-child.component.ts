@@ -12,7 +12,7 @@ export class TestChildComponent implements OnInit {
   @Output() childUpdate = new EventEmitter<number>();
   @Input()
   set childInput(val: { test: string }) {
-    console.log(val)
+    // console.log(val)
     this.uppercaseTestData = val.test.toUpperCase();
   }
 
@@ -20,6 +20,7 @@ export class TestChildComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    // console.log('on init: ' + this.uppercaseTestData)
   }
 
   handleCounterClick() {

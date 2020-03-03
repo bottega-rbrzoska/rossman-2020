@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { CounterService } from './counter.service';
 import { CONFIG_TOKEN } from '../tokens';
 
@@ -10,7 +11,8 @@ export function counterServiceFactory() {
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule
+    CommonModule,
+    HttpClientModule
   ],
   providers: [
     { provide: CounterService, useFactory: counterServiceFactory },

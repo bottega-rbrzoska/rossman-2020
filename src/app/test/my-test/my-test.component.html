@@ -1,4 +1,11 @@
+<div *ngIf="testData | async as syncTestData; else boxLoader">
 
+  TestData from http: {{syncTestData  | json }}
+  <!-- <ros-test-child
+  bgColor="yellow"
+  (childUpdate)="childUpdateHandler($event)"
+  [childInput]="syncTestData"></ros-test-child> -->
+</div>
 <p class="red">my-test works! <code> {{ testVar | json }} </code></p>
   <div *ngIf="asyncData; else boxLoader" class="bg-secondary" style="width: 200px;
 height: 200px" >
@@ -17,3 +24,4 @@ height: 200px" >
 bgColor="yellow"
 (childUpdate)="childUpdateHandler($event)"
 [childInput]="testVar"></ros-test-child>
+<div>TestData from http x 2: {{testData | async | json }}</div>
