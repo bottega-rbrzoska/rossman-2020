@@ -8,6 +8,7 @@ import { AuthGuard } from './auth.guard';
 import { AuthInterceptor } from './auth.interceptor';
 import { environment } from 'src/environments/environment';
 import { tap } from 'rxjs/operators';
+import { SharedModule } from '../shared/shared.module';
 
 export function counterServiceFactory() {
   return new CounterService(5);
@@ -23,7 +24,8 @@ export function configInitializer(http: HttpClient) {
   declarations: [],
   imports: [
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule.forRoot()
   ],
   providers: [
     AuthService,

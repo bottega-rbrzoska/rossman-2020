@@ -3,6 +3,8 @@ import { environment } from '../../environments/environment';
 import { Product } from '../models/product.interface';
 import { BehaviorSubject, combineLatest } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { tap } from 'rxjs/operators';
+import { NotificationService } from '../shared/notification.service';
 
 const apiUrl = environment.apiUrl;
 
@@ -19,7 +21,7 @@ export class ProductsService {
   categories = this.categoriesSubj.value;
   productsFilter$ = this.productsFilterSubj.asObservable();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private ns: NotificationService) { }
 
   fetchProducts() {
     this.http.get<Product[]>(apiUrl + '/products').subscribe(p => this.productsSubj.next(p));
@@ -30,7 +32,12 @@ export class ProductsService {
   }
 
   updateProduct(id: string, product: Product) {
-    return this.http.put<any>(apiUrl + '/products/' + id, product);
+    return this.http.put<any>(apiUrl + '/products/' + id, product).pipe(
+      tap(() => this.ns.pushNotification({
+        title: 'SUCESSS',
+        content: 'Product updated!'
+      }))
+    );
   }
 
   addProduct( product: Product) {
