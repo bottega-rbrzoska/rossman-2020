@@ -3,7 +3,8 @@
       <a class="nav-item nav-link" routerLink="/"
       [routerLinkActiveOptions]="{exact: true}"
       routerLinkActive="active">Home</a>
-      <a class="nav-item nav-link" routerLink="/test" routerLinkActive="active">Test</a>
+
+      <a class="nav-item nav-link" routerLink="/test" *rosShowForAdmin routerLinkActive="active">Test</a>
       <a class="nav-item nav-link" routerLink="/products" routerLinkActive="active">Products</a>
       <a class="nav-item nav-link" routerLink="/contact" routerLinkActive="active">Contact</a>
   </div>

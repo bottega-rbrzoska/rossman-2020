@@ -18,13 +18,16 @@ export class AuthService {
   isLoggedIn$ = this.userSubj.pipe(
     map(user => !!user)
   );
+  isAdmin$ = this.userSubj.pipe(
+    map(user =>  user && user.admin)
+  );
 
   constructor(private httpClient: HttpClient) {
     const initUser = localStorage.getItem('user');
     this.userSubj.next(initUser ? JSON.parse(initUser) : null);
   }
 
-  login(id = 'alojzy') {
+  login(id = 'buziaczek') {
     this.httpClient.get<User>(apiUrl + '/auth/' + id).subscribe(user => {
       this.userSubj.next(user);
       localStorage.setItem('user', JSON.stringify(user));

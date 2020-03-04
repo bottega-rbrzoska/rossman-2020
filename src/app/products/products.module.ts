@@ -9,7 +9,7 @@ import { ProductAddComponent } from './product-add/product-add.component';
 import { ProductFormComponent } from './product-form/product-form.component';
 import { ProductEditComponent } from './product-edit/product-edit.component';
 import { ProductsService } from './products.service';
-
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,8 @@ import { ProductsService } from './products.service';
   imports: [
     CommonModule,
     ProductsRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ],
   providers: [ProductsService]
 
