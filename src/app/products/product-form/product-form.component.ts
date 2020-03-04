@@ -11,6 +11,7 @@ export class ProductFormComponent implements OnInit {
 
   @Output() save = new EventEmitter();
   @Input() product: Product;
+  @Input() categories;
 
   productForm = new FormGroup({
     name: new FormControl('', Validators.required),

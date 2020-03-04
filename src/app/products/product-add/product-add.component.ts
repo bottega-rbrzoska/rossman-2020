@@ -9,7 +9,14 @@ import { Router } from '@angular/router';
 })
 export class ProductAddComponent implements OnInit {
 
-  constructor(private productService: ProductsService, private router: Router) { }
+  categories$;
+
+  constructor(private productService: ProductsService, private router: Router) {
+    this.categories$ = productService.categories$;
+    if (!productService.categories) {
+      productService.fetchCategories();
+    }
+  }
 
   ngOnInit(): void {
   }

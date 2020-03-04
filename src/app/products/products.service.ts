@@ -11,9 +11,12 @@ export class ProductsService {
 
 
   private productsSubj = new BehaviorSubject<Product[]>(null);
+  private categoriesSubj = new BehaviorSubject<{ name: string; value: string }[]>(null);
   private productsFilterSubj = new BehaviorSubject<any>(null);
 
   products$ = this.productsSubj.asObservable();
+  categories$ = this.categoriesSubj.asObservable();
+  categories = this.categoriesSubj.value;
   productsFilter$ = this.productsFilterSubj.asObservable();
 
   constructor(private http: HttpClient) { }
@@ -36,5 +39,10 @@ export class ProductsService {
 
   getById(id: string) {
     return this.http.get<Product>(apiUrl + '/products/' + id);
+  }
+  fetchCategories() {
+    this.http.get<{ name: string; value: string }[]>(apiUrl + '/categories').subscribe(
+      c => this.categoriesSubj.next(c)
+    );
   }
 }

@@ -1,1 +1,3 @@
-<ros-product-form (save)="handleSave($event)"></ros-product-form>
+<ng-container *ngIf="categories$ | async as categories">
+  <ros-product-form (save)="handleSave($event)" [categories]="categories"></ros-product-form>
+</ng-container>

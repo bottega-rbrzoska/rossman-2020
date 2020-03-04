@@ -1,9 +1,9 @@
 <p>Przekazywanie asynchronicznych danych ze smart componentu do dumb komponentu</p>
-<div *ngIf="testData$ | async as syncTestData; else boxLoader">
+<!-- <div *ngIf="testData$ | async as syncTestData; else boxLoader">
   <ros-test-child bgColor="yellow"
   (childUpdate)="childUpdateHandler($event)"
   [childInput]="syncTestData"></ros-test-child>
-</div>
+</div> -->
 
 <ng-template #boxLoader>Loading.....</ng-template>
 

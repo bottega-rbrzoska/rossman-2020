@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { TestService } from '../test.service';
-import { Observable, from, Subject, BehaviorSubject, Subscription } from 'rxjs';
+import { Observable, from, Subject, BehaviorSubject, Subscription, forkJoin } from 'rxjs';
 import { map, filter } from 'rxjs/operators';
 
 @Component({
@@ -17,6 +17,11 @@ export class MyTestComponent implements OnInit, OnDestroy {
 
   constructor(private testService: TestService) {
 
+    forkJoin([
+      testService.getTestData(),
+      testService.getTestDataWithError()]).subscribe(data => {
+      console.log(data);
+    });
     this.subscribtion = this.testService.testState$.subscribe(v => console.log('test state: ' + v));
 
     this.testData$ = this.testService.getTestData()

@@ -16,9 +16,7 @@
       <option value="none" hidden>
         Select Category
       </option>
-      <option value="food">Food</option>
-      <option value="electronic">Electronic</option>
-      <option value="other">Other</option>
+      <option *ngFor="let category of categories" [value]="category.value">{{category.name}}</option>
     </select>
   </div>
 
