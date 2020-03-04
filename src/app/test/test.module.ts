@@ -6,6 +6,7 @@ import { MyTestComponent } from './my-test/my-test.component';
 import { MyTestDetailComponent } from './my-test-detail/my-test-detail.component';
 import { TestChildComponent } from './test-child/test-child.component';
 import { TestService } from './test.service';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { TestService } from './test.service';
   ],
   imports: [
     CommonModule,
-    TestRoutingModule
+    TestRoutingModule,
+    SharedModule
   ],
   providers: [
     TestService

@@ -19,7 +19,7 @@ export class MyTestComponent implements OnInit, OnDestroy {
 
     forkJoin([
       testService.getTestData(),
-      testService.getTestDataWithError()]).subscribe(data => {
+      testService.getTestData()]).subscribe(data => {
       console.log(data);
     });
     this.subscribtion = this.testService.testState$.subscribe(v => console.log('test state: ' + v));
