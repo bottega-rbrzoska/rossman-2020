@@ -14,6 +14,7 @@ export class ProductAddComponent implements OnInit {
   constructor(private productService: ProductsService, private router: Router) {
     this.categories$ = productService.categories$;
     if (!productService.categories) {
+      console.log(productService.categories);
       productService.fetchCategories();
     }
   }
