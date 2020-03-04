@@ -1,4 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, Optional, InjectionToken, Inject } from '@angular/core';
+
+export const MyTestComponentToken = new InjectionToken('MyTestComponent');
 
 @Component({
   selector: 'ros-test-child',
@@ -16,9 +18,17 @@ export class TestChildComponent implements OnInit {
   }
 
   @Input() bgColor = 'transparent';
-  constructor() { }
+  constructor(@Inject(MyTestComponentToken) @Optional() private parent: any) {
+    if (!this.parent) {
+      console.error('Gdzie jest tatooooo MyTestComponent!!!!!');
+    }
+  }
 
   ngOnInit(): void {
+  }
+
+  helloFromChild() {
+    alert('hello mariolka')
   }
 
   handleCounterClick() {

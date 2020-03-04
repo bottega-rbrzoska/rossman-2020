@@ -1,5 +1,7 @@
 <p>Przekazywanie asynchronicznych danych ze smart componentu do dumb komponentu</p>
+
 <div *ngIf="testData$ | async as syncTestData; else boxLoader">
+  <button (click)="child.helloFromChild()">Get helou</button>
   <ros-test-child bgColor="yellow"
 
   (childUpdate)="childUpdateHandler($event)"
@@ -14,8 +16,13 @@
 {{ myTestInput.value }}
 </div>
 
-<div rosToggle="red"
+<div rosToggle #divToggler="rosToggleVar"
 rosToggleEventType="click"
 rosToggleFirstClass="color1"
 rosToggleSecondClass="color2">Child clicks counter: {{ childCounter }}</div>
+<div rosToggle #divToggler="rosToggleVar"
+rosToggleEventType="click"
+rosToggleFirstClass="color1"
+rosToggleSecondClass="color2">Second element costam costam do podswietlenia</div>
 
+<button class="btn btn-sm btn-outline-warning" (click)="divToggler.toggle()">Toggle!!</button>

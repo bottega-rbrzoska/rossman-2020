@@ -1,9 +1,11 @@
 import { Directive, ElementRef, Renderer2, HostListener, Input, OnInit, OnDestroy } from '@angular/core';
 
 @Directive({
-  selector: '[rosToggle]'
+  selector: '[rosToggle]',
+  exportAs: 'rosToggleVar'
 })
 export class ToggleDirective implements OnInit, OnDestroy {
+
   @Input() rosToggle;
   @Input() rosToggleEventType;
   @Input() rosToggleFirstClass;
@@ -19,12 +21,12 @@ export class ToggleDirective implements OnInit, OnDestroy {
     this.currentClass = this.currentClass || this.rosToggleFirstClass;
     if (this.rosToggleEventType) {
       this.unlisten = this.renderer.listen(this.el.nativeElement, this.rosToggleEventType, () =>
-        this.handleEvent()
+        this.toggle()
       );
     }
   }
 
-  handleEvent() {
+  toggle() {
     this.renderer.removeClass(this.el.nativeElement, this.rosToggleFirstClass);
     this.renderer.removeClass(this.el.nativeElement, this.rosToggleSecondClass);
 
