@@ -1,27 +1,18 @@
-<div *ngIf="testData | async as syncTestData; else boxLoader">
-
-  TestData from http: {{syncTestData  | json }}
-  <!-- <ros-test-child
-  bgColor="yellow"
+<p>Przekazywanie asynchronicznych danych ze smart componentu do dumb komponentu</p>
+<div *ngIf="testData$ | async as syncTestData; else boxLoader">
+  <ros-test-child bgColor="yellow"
   (childUpdate)="childUpdateHandler($event)"
-  [childInput]="syncTestData"></ros-test-child> -->
+  [childInput]="syncTestData"></ros-test-child>
 </div>
-<p class="red">my-test works! <code> {{ testVar | json }} </code></p>
-  <div *ngIf="asyncData; else boxLoader" class="bg-secondary" style="width: 200px;
-height: 200px" >
-<ul>
-  <li *ngFor="let item of asyncData">
-{{item}}
-  </li>
-</ul>
+
+<ng-template #boxLoader>Loading.....</ng-template>
+
+<hr>
+<p>Input #refVariable i odświeżanie stanu tylko po evencie</p>
+<div>
 <input #myTestInput class="m-3" (keyup)="keyupHandler()">
 {{ myTestInput.value }}
 </div>
-<ng-template #boxLoader>Loading.....</ng-template>
 
-<div>CHild clicks counter: {{ childCounter }}</div>
-<ros-test-child
-bgColor="yellow"
-(childUpdate)="childUpdateHandler($event)"
-[childInput]="testVar"></ros-test-child>
-<div>TestData from http x 2: {{testData | async | json }}</div>
+<div>Child clicks counter: {{ childCounter }}</div>
+

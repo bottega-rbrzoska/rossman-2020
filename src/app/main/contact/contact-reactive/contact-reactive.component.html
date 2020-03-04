@@ -1,0 +1,17 @@
+<form [formGroup]="myForm" (submit)="handleSubmit()">
+  <div class="form-group">
+    <label>Email</label>
+    <input
+      class="form-control" formControlName="email">
+  </div>
+  <div class="form-group">
+    <label>Message</label>
+    <textarea
+      class="form-control" formControlName="message"></textarea>
+  </div>
+  <button class="btn btn-danger mt-2">Send</button>
+</form>
+{{myForm.controls.message.errors | json}}
+
+<!-- <my-erros [errors]="myForm.controls.message.errors"
+[errorsMap]="{ dupaError: 'wyrazaj sie ciulu!'}"></my-erros> -->

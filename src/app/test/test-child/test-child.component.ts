@@ -11,16 +11,14 @@ export class TestChildComponent implements OnInit {
   private counter = 0;
   @Output() childUpdate = new EventEmitter<number>();
   @Input()
-  set childInput(val: { test: string }) {
-    // console.log(val)
-    this.uppercaseTestData = val.test.toUpperCase();
+  set childInput(val: string ) {
+    this.uppercaseTestData = val.toUpperCase();
   }
 
   @Input() bgColor = 'transparent';
   constructor() { }
 
   ngOnInit(): void {
-    // console.log('on init: ' + this.uppercaseTestData)
   }
 
   handleCounterClick() {

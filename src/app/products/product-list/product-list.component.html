@@ -1,5 +1,5 @@
-<button class="btn btn-danger" routerLink="/products/add">Add new product</button>
-<div class="list-group">
+<button class="btn btn-danger mb-2" routerLink="/products/add">Add new product</button>
+<div class="list-group" *ngIf="products$ | async as products">
   <ros-product-item [product]="product" *ngFor="let product of products"></ros-product-item>
 </div>
 

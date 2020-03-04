@@ -7,17 +7,18 @@ import { MyTestDetailComponent } from './my-test-detail/my-test-detail.component
 import { TestChildComponent } from './test-child/test-child.component';
 import { TestService } from './test.service';
 
-
 @NgModule({
   declarations: [
     MyTestComponent,
     MyTestDetailComponent,
-    TestChildComponent],
+    TestChildComponent
+  ],
   imports: [
     CommonModule,
     TestRoutingModule
   ],
-  providers: [TestService]
+  providers: [
+    TestService
+  ]
 })
-export class TestModule { }
-
+export class TestModule {}
