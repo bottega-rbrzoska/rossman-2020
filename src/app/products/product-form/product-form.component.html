@@ -1,17 +1,18 @@
-<form>
+<form [formGroup]="productForm" (submit)="handleSubmit()">
+
   <div class="form-group">
     <label>Name</label>
-    <input type="text" class="form-control form-control-sm" />
+    <input type="text" class="form-control form-control-sm" formControlName="name" />
   </div>
 
   <div class="form-group">
     <label>Price</label>
-    <input type="number" class="form-control form-control-sm" />
+    <input type="number" class="form-control form-control-sm" formControlName="price" />
   </div>
 
   <div class="form-group">
     <label>Category</label>
-    <select class="form-control form-control-sm">
+    <select class="form-control form-control-sm" formControlName="category">
       <option value="none" hidden>
         Select Category
       </option>
@@ -23,10 +24,10 @@
 
   <div class="form-group">
     <label>Description</label>
-    <textarea class="form-control form-control-sm"></textarea>
+    <textarea class="form-control form-control-sm" formControlName="description"></textarea>
   </div>
   <div class="custom-control custom-checkbox">
-    <input type="checkbox" class="custom-control-input" id="customCheck1" />
+    <input type="checkbox" class="custom-control-input" formControlName="isActive" id="customCheck1" />
     <label class="custom-control-label" for="customCheck1">Is active</label>
   </div>
   <button class="btn btn-warning mt-2">Save</button>

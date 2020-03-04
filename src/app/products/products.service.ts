@@ -27,10 +27,14 @@ export class ProductsService {
   }
 
   updateProduct(id: string, product: Product) {
-    this.http.put<any>(apiUrl + '/products/' + id, product);
+    return this.http.put<any>(apiUrl + '/products/' + id, product);
   }
 
   addProduct( product: Product) {
-    this.http.post<any>(apiUrl + '/products/', product);
+    return this.http.post<any>(apiUrl + '/products/', product);
+  }
+
+  getById(id: string) {
+    return this.http.get<Product>(apiUrl + '/products/' + id);
   }
 }

@@ -1,1 +1,3 @@
-<div>Helloł! Tu produkt o id <div class="badge badge-primary">{{id}}</div></div>
+<ng-container *ngIf="product$ | async as product">
+  <ros-product-form [product]="product" (save)="handleSave($event)"></ros-product-form>
+</ng-container>
