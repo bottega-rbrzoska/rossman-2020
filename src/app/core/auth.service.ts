@@ -21,6 +21,9 @@ export class AuthService {
   isAdmin$ = this.userSubj.pipe(
     map(user =>  user && user.admin)
   );
+  get isLoggedIn() {
+    return this.userSubj.getValue();
+  }
 
   constructor(private httpClient: HttpClient) {
     const initUser = localStorage.getItem('user');
